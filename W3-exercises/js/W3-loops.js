@@ -187,7 +187,21 @@ happyNumbers();
 // 9. Write a JavaScript program to find the armstrong numbers of 3 digits. Go to the editor
 // Note : An Armstrong number of three digits is an integer such that the sum of the cubes of its digits is equal to the number itself. For example, 371 is an Armstrong number since 3**3 + 7**3 + 1**3 = 371.
 // Click me to see the solution
+function armstrong(){
+    var k = 0;
+    for (var i = 100; i < 1000; i++) {
+        var numString = i.toString();
+                var num1 = numString[0];
+                var num2 = numString[1];
+                var num3 = numString[2];
+                var num = Math.pow(num1, 3) + Math.pow(num2, 3) + Math.pow(num3, 3);
 
+            if (num === i) {
+                console.log("Armstrong is  Number:" + i);
+            }
+    }
+}
+armstrong();
 
 
 
@@ -198,16 +212,39 @@ happyNumbers();
 // * * *
 // * * * *
 // * * * * *
-
-
+function starPatter(){
+    var star = "";
+    for (var i = 1; i <= 5; i++){
+        star = star.concat("*");
+        console.log(star);
+    }
+}
+starPatter();
 
 
 // 11. Write a JavaScript program to compute the greatest common divisor (GCD) of two positive integers. Go to the editor
-
+function greatestCD(num1, num2){
+    for(var i = 100; i >= 0; i--){
+        if (num1 % i === 0 && num2 % i === 0){
+            console.log(i + " is the GCD of " + num1 + " and " + num2);
+            break;
+        }
+    }
+}
+greatestCD(18, 25);
 
 
 
 // 12. Write a JavaScript program to sum the multiples of 3 and 5 under 1000. Go to the editor
-
+function sumOfMultiples(){
+    var sum = 0;
+    for (var i = 0; i < 1000; i++){
+        if (i % 3 === 0 && i % 5 === 0){
+            sum = sum + i;
+        }
+    }
+    console.log(sum);
+}
+sumOfMultiples();
 
 
