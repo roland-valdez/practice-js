@@ -7,20 +7,21 @@
 
 function standardToMilitary(hours, minutes, dayNight) {
 	console.log("The time you entered was " + hours + ":" + minutes + dayNight + ".");
-	if (dayNight === "am" || dayNight === "AM"){
-		var military = hours.toString() + minutes.toString()
-	}else if ((dayNight === "am" || dayNight === "AM") && hours === 12){
-		var military = "0000"
+	if ((dayNight === "am" || dayNight === "AM") && hours === "12"){
+		hours = "00";
+	}else if ((dayNight === "pm" || dayNight === "PM") && hours !== "12"){
+		hours = Number(hours) +  12;
+	}else if (dayNight === "am" || dayNight === "AM") {
+		hours = "0" + hours.toString();
 	}
-	else if (dayNight === "pm" || dayNight === "PM") {
-		hours += 12;
-		var military = hours.toString() + minutes.toString();
-	}
+	var military = hours.toString() + minutes.toString();
 	console.log("The military time equivalent for that is " + military + " hours");
 
 };
-standardToMilitary(12, 35, "PM");
-
+standardToMilitary("12", "35", "PM");
+standardToMilitary("12", "56", "am");
+standardToMilitary("9", "15", "pm");
+standardToMilitary("9", "35", "AM");
 //Exercise
 //write a function that takes in a number as input and returns the factorial of the number
 function factorial(num) {
@@ -41,10 +42,55 @@ factorial(10);
 
 //Exercise
 // write a function that takes in a number and returns that number in roman numerals in the modern fashion where a smaller roman numeral preceeding a larger one means subtraction. this only ocurrs when four of the same numeral would be used
-
 function toRoman(num) {
-	
+	var thou = 0, fivehou = 0, hou = 0, fifty = 0, tens = 0, fives = 0, ones = 0;
+	var output = "";
+	console.log("The number you entered is " + num + ".");
+	if (num > 999){
+		thou = Math.floor(num / 1000);
+		var m = "M".repeat(thou);
+		output += m;
+		num = num - (thou * 1000);
+	}
+	if (num > 499) {
+		fivehou = Math.floor(num / 500);
+		var d = "D".repeat(fivehou);
+		output += d;
+		num = num - (fivehou * 500);
+	}
+	if (num > 99){
+		hou = Math.floor(num / 100);
+		var c = "C".repeat(hou);
+		output += c;
+		num = num - (hou * 100);
+	}
+	if (num > 49){
+		fifty = Math.floor(num / 50);
+		var l = "L".repeat(fifty);
+		output += l;
+		num = num - (fifty * 50);
+	}
+	if (num > 9) {
+		tens = Math.floor(num / 10);
+		var x = "X".repeat(tens);
+		output += x;
+		num = num - (tens * 10);
+	}
+	if (num > 5) {
+		fives = Math.floor(num / 5);
+		var v = "V".repeat(fives);
+		output += v;
+		num = num - (fives * 5);
+	}
+	if (num > 1) {
+		ones = Math.floor(num / 1);
+		var i = "I".repeat(ones);
+		output += i;
+		num = num - (ones * 1);
+	}
+	console.log("This is it's roman numeral equivalent " + output + ".");
 }
+toRoman(9);
 
 // Exercise
 // Roman Numerals
@@ -64,7 +110,56 @@ function toRoman(num) {
 // XLIV -> 44
 // CMXLIV -> 944
 
-
+function toRomanLazy(num) {
+	var thou = 0, fivehou = 0, hou = 0, fifty = 0, tens = 0, fives = 0, ones = 0;
+	var output = "";
+	console.log("The number you entered is " + num + ".");
+	if (num > 999){
+		console.log(num % 1000)
+		thou = Math.floor(num / 1000);
+		var m = "M".repeat(thou);
+		output += m;
+		num = num - (thou * 1000);
+	}
+	if (num > 499) {
+		fivehou = Math.floor(num / 500);
+		var d = "D".repeat(fivehou);
+		output += d;
+		num = num - (fivehou * 500);
+	}
+	if (num > 99){
+		hou = Math.floor(num / 100);
+		var c = "C".repeat(hou);
+		output += c;
+		num = num - (hou * 100);
+	}
+	if (num > 49){
+		fifty = Math.floor(num / 50);
+		var l = "L".repeat(fifty);
+		output += l;
+		num = num - (fifty * 50);
+	}
+	if (num > 9) {
+		tens = Math.floor(num / 10);
+		var x = "X".repeat(tens);
+		output += x;
+		num = num - (tens * 10);
+	}
+	if (num > 5) {
+		fives = Math.floor(num / 5);
+		var v = "V".repeat(fives);
+		output += v;
+		num = num - (fives * 5);
+	}
+	if (num > 1) {
+		ones = Math.floor(num / 1);
+		var i = "I".repeat(ones);
+		output += i;
+		num = num - (ones * 1);
+	}
+	console.log("This is it's lazy roman numeral equivalent " + output + ".");
+}
+toRomanLazy(5123);
 
 // Exercise
 // write a function that takes in a number and outputs the bottles of beer on the wall song to completion
