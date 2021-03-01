@@ -43,54 +43,32 @@ factorial(10);
 //Exercise
 // write a function that takes in a number and returns that number in roman numerals in the modern fashion where a smaller roman numeral preceeding a larger one means subtraction. this only ocurrs when four of the same numeral would be used
 function toRoman(num) {
-	var thou = 0, fivehou = 0, hou = 0, fifty = 0, tens = 0, fives = 0, ones = 0;
-	var output = "";
-	console.log("The number you entered is " + num + ".");
-	if (num > 999){
-		thou = Math.floor(num / 1000);
-		var m = "M".repeat(thou);
-		output += m;
-		num = num - (thou * 1000);
+	var roman = {
+		M: 1000,
+		CM: 900,
+		D: 500,
+		CD: 400,
+		C: 100,
+		XC: 90,
+		L: 50,
+		XL: 40,
+		X: 10,
+		IX: 9,
+		V: 5,
+		IV: 4,
+		I: 1
+	};
+	var str = '';
+
+	for (var i of Object.keys(roman)) {
+		var q = Math.floor(num / roman[i]);
+		num -= q * roman[i];
+		str += i.repeat(q);
 	}
-	if (num > 499) {
-		fivehou = Math.floor(num / 500);
-		var d = "D".repeat(fivehou);
-		output += d;
-		num = num - (fivehou * 500);
-	}
-	if (num > 99){
-		hou = Math.floor(num / 100);
-		var c = "C".repeat(hou);
-		output += c;
-		num = num - (hou * 100);
-	}
-	if (num > 49){
-		fifty = Math.floor(num / 50);
-		var l = "L".repeat(fifty);
-		output += l;
-		num = num - (fifty * 50);
-	}
-	if (num > 9) {
-		tens = Math.floor(num / 10);
-		var x = "X".repeat(tens);
-		output += x;
-		num = num - (tens * 10);
-	}
-	if (num > 5) {
-		fives = Math.floor(num / 5);
-		var v = "V".repeat(fives);
-		output += v;
-		num = num - (fives * 5);
-	}
-	if (num > 1) {
-		ones = Math.floor(num / 1);
-		var i = "I".repeat(ones);
-		output += i;
-		num = num - (ones * 1);
-	}
-	console.log("This is it's roman numeral equivalent " + output + ".");
+
+	return str;
 }
-toRoman(9);
+toRoman(2000);
 
 // Exercise
 // Roman Numerals
@@ -198,7 +176,24 @@ toRomanLazy(5123);
 // Challenge Yourself
 // Make your code able to take in and account for any bottle amount
 // Refactor your code so it doesn't use any loops or iteration whatsoever
-
+function bottles(num){
+	for (var i = num; i > 0; i--) {
+		if (i === 1 ){
+			console.log("1 bottle of beer on the wall, 1 bottle of beer.");
+			console.log("Take one down and pass it around, no more bottles of beer on the wall.");
+			console.log("No more bottles of beer on the wall, no more bottles of beer.");
+			console.log("Go to the store and buy some more, " + num + " bottles of beer on the wall.");
+		}else {
+			console.log(i + " bottles of beer on the wall, " + i + " bottles of beer.");
+			if(i === 2){
+				console.log("Take one down and pass it around, " + (i - 1) + " bottle of beer on the wall.");
+			}else {
+				console.log("Take one down and pass it around, " + (i - 1) + " bottles of beer on the wall.");
+			}
+		}
+	}
+}
+bottles(3);
 // Exercise
 // write a function that takes input from the user to have a conversation with a deafGrandma
 // Deaf Grandma
@@ -233,180 +228,26 @@ toRomanLazy(5123);
 // LATER, SKATER!
 
 
-
-
-
-// Exercise Write a function definition named isVowel that takes in value and returns true if the value is a, e, i, o, u in upper or lower case.
-
-
-// Exercise
-// Write a function definition named hasVowels that takes in value and returns true if the string contains any vowels.
-
-// Exercise
-// Write a function definition named countVowels that takes in value and returns the count of the nubmer of vowels in a sequence.
-
-
-// Exercise
-// Write a function definition named removeVowels that takes in string and returns the string without any vowels
-
-// Exercise
-// Write a function definition named startsWithVowel that takes in string and true if the string starts with a vowel
-
-
-// Exercise
-// Write a function definition named endsWithVowel that takes in string and true if the string ends with a vowel
-
-
-// Exercise
-// Write a function definition named startsAndEndsWithVowel that takes in string and returns true if the string starts and ends with a vowel
-
-
-// Exercise
-// Write a function definition named first that takes in sequence and returns the first value of that sequence.
-
-// Exercise
-// Write a function definition named second that takes in sequence and returns the second value of that sequence.
-
-
-// Exercise
-// Write a function definition named third that takes in sequence and returns the third value of that sequence.
-
-
-// Exercise
-// Write a function definition named forth that takes in sequence and returns the forth value of that sequence.
-
-
-// Exercise
-// Write a function definition named last that takes in sequence and returns the last value of that sequence.
-
-// Exercise
-// Write a function definition named secondToLast that takes in sequence and returns the second to last value of that sequence.
-
-
-// Exercise
-// Write a function definition named thirdToLast that takes in sequence and returns the third to last value of that sequence.
-
-
-// Exercise
-// Write a function definition named firstAndSecond that takes in sequence and returns the first and second value of that sequence as an array
-
-
-// Exercise
-// Write a function definition named firstAndLast that takes in sequence and returns the first and last value of that sequence as an array
-
-
-// Exercise
-// Write a function definition named firstToLast that takes in sequence and returns the sequence with the first value moved to the end of the sequence.
-
-
-// Exercise
-// Write a function definition named sumAll that takes in sequence of numbers and returns all the numbers added together.
-
-
-
-//  Exercise
-//  Write a function definition named mean that takes in sequence of numbers and returns the average value
-
-// Exercise
-// Write a function definition named median that takes in sequence of numbers and returns the average value
-
-
-// Exercise
-// Write a function definition named maxMinusMin that takes in an array of numbers and returns the difference of the maximum minus theminimum.
-
-
-// Exercise
-// Write a function definition named productOfAll that takes in sequence of numbers and returns the product of multiplying all the numbers together
-
-
-// Exercise
-// Write a function definition named getHighestNumber that takes in sequence of numbers and returns the largest number.
-
-
-// Exercise
-// Write a function definition named getSmallestNumber that takes in sequence of numbers and returns the smallest number.
-
-// Exercise
-// Write a function definition named onlyOddNumbers that takes in sequence of numbers and returns the odd numbers in an array.
-
-
-
-// Exercise
-// Write a function definition named onlyEvenNumbers that takes in sequence of numbers and returns the even numbers in an array.
-
-
-// Exercise
-// Write a function definition named onlyPositiveNumbers that takes in sequence of numbers and returns the positive numbers in an array.
-
-
-// Exercise
-// Write a function definition named onlyNegativeNumbers that takes in sequence of numbers and returns the negative numbers in an array.
-
-
-
-// Exercise
-// Write a function definition named hasEvens that takes in sequence of numbers and returns true if there are any even numbers in the sequence
-
-
-
-// Exercise
-// Write a function definition named countEvens that takes in sequence of numbers and returns the number of even numbers
-
-
-// Exercise
-// Write a function definition named hasOdds that takes in sequence of numbers and returns true if there are any odd numbers in the sequence
-
-
-// Exercise
-// Write a function definition named countOdds that takes in sequence of numbers and returns a count of the any odd numbers in the sequence
-
-
-// Exercise
-// Write a function definition named countNegatives that takes in sequence of numbers and returns a count of the number of negative numbers
-
-
-// Exercise
-// Write a function definition named countPositives that takes in sequence of numbers and returns a count of the number of positive numbers
-
-
-// Exercise
-// Write a function definition named onlyPositiveEvens that takes in sequence of numbers and returns an array containing all the positive evens from the sequence
-
-
-// Exercise
-// Write a function definition named onlyPositiveOdds that takes in sequence of numbers and returns an array containing all the positive odd numbers from the sequence
-
-
-// Exercise
-// Write a function definition named onlyNegativeEvens that takes in sequence of numbers and returns an array containing all the negative even numbers from the sequence
-
-
-// Exercise
-// Write a function definition named onlyNegativeOdds that takes in sequence of numbers and returns an array containing all the negative odd numbers from the sequence
-
-
-// Exercise
-// Write a function definition named shortestString that takes in an array of strings and returns the shortest string in the array.
-
-
-// Exercise
-// Write a function definition named longestString that takes in sequence of strings and returns the longest string in the array.
-
-
-// Exercise
-// Write a function definition named getUniqueValues that takes in an array and returns an array with only the unique values from that array.
-
-
-// Exercise
-// Write a function definition named elementsTimesTwo that takes in an array of numbers and returns an array with each value multiplied by 2.
-
-
-// Exercise
-// Write a function named flatten that takes in an array of arrays. Return the flattened array.
-
-
-
-
-// Exercise
-// Write a function definition named addOneToArray that adds one to every number in an array
+function deafGrandma(){
+	var input = prompt("HEY KID!");
+	var count = 1;
+	while(true) {
+		var inputUpper = input;
+		inputUpper.toUpperCase();
+		if (input === "") {
+			input = prompt("WHAT?");
+		}else if(input.match(/[a-z]/g)){
+			input = prompt("SPEAK UP, KID!");
+		}else if (input === inputUpper && input !== "GOODBYE!") {
+			input = prompt("NO, NOT SINCE 1946!");
+		}else if (count === 1 && input === "GOODBYE!"){
+			input = prompt("LEAVING SO SOON?");
+			count++;
+		}else if (count === 2 && input === "GOODBYE!") {
+			input = alert("LATER, SKATER!");
+			break;
+		}
+	}
+}
+deafGrandma();
 
