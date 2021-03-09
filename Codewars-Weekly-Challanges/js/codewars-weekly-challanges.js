@@ -58,3 +58,69 @@ AlphabetWar("z");        //=> Right side wins!
 AlphabetWar("zdqmwpbs"); //=> Let's fight again!
 AlphabetWar("zzzzs");    //=> Right side wins!
 AlphabetWar("wwwwwwz");  //=> Left side wins!
+// Description:
+//     Your task is to make a function that can take any non-negative integer as an argument and return it with its digits in descending order. Essentially, rearrange the digits to create the highest possible number.
+//
+//     Examples:
+// Input: 42145 Output: 54421
+//
+// Input: 145263 Output: 654321
+//
+// Input: 123456789 Output: 987654321
+function descendingOrder(n){
+    //...
+    var unsorted = n.toString();
+
+    // if (unsorted.length > 1) {
+    //     console.log(unsorted.split(""));
+    //     return console.log(unsorted);
+    // }
+    // return console.log(n);
+}
+descendingOrder(0)// 0)
+descendingOrder(1)// 1)
+descendingOrder(123456789)// 987654321)
+// function descendingOrder(n){
+//     return parseInt(String(n).split('').sort().reverse().join(''))//could use Number also instead of parseInt
+// }
+
+// Two integer numbers are added using the column addition method. When using this method, some additions of digits produce non-zero carries to the next positions. Your task is to calculate the number of non-zero carries that will occur while adding the given numbers.
+//     The numbers are added in base 10.
+//
+// Example
+// For a = 543 and b = 3456, the output should be 0
+//
+// For a = 1927 and b = 6426, the output should be 2
+//
+// For a = 9999 and b = 1, the output should be 4
+//
+// Input/Output
+//     [input] integer a
+//
+// A positive integer.
+//
+//     Constraints: 1 ≤ a ≤ 10^7
+//
+//     [input] integer b
+//
+// A positive integer.
+//
+//     Constraints: 1 ≤ b ≤ 10^7
+//
+//     [output] an integer
+
+function carry(a, b){
+    a =  String(a).split("");
+    b = String(b).split("");
+    if (a.length > b.length){
+        var diff = a.length - b.length;
+        for(var i = 0; i < diff; i++){
+            b.shift("0");
+            console.log("im here");
+        }
+
+    }
+    console.log(a);
+    console.log(b);
+}
+carry(29, 3);
