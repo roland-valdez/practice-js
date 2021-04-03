@@ -145,6 +145,20 @@ convertAddressToObject('5408 Villa Nueva') // {streetNumber: '5408', streetName:
 // Return 0 if given an empty array.
 //     All array items are of the type bool (true or false).
 
+function countTrue(array){
+    var count = 0;
+    for (var i = 0; i < array.length; i++){
+        if( array[i] === true){
+            count++
+        }
+    }
+    console.log(count);
+}
+
+countTrue([true, false, false, true, false]);
+countTrue([false, false, false, false]);
+countTrue([]);
+
 //****** #2 Converting Objects to Arrays
 // Write a function that converts an object into an array, where each element represents a key-value pair in the form of an array.
 //
@@ -156,6 +170,14 @@ convertAddressToObject('5408 Villa Nueva') // {streetNumber: '5408', streetName:
 // toArray({}) ➞ []
 // Notes
 // Return an empty array if the object is empty.
+
+function toArray(object){
+    var array =  Object.entries(object);
+    console.log(array);
+}
+toArray({ a: 1, b: 2 });
+toArray({ shrimp: 15, tots: 12 });
+toArray({});
 
 //****** #3 Concatenate variable number of inout arrays
 // Create a function that concatenates n input arrays, where n is variable.
@@ -170,6 +192,15 @@ convertAddressToObject('5408 Villa Nueva') // {streetNumber: '5408', streetName:
 // concat([4, 4, 4, 4, 4]) ➞ [4, 4, 4, 4, 4]
 // Notes
 // Arrays should be concatenated in order of the arguments.
+
+function concat(array){
+    if (array.length){}
+}
+concat([1, 2, 3], [4, 5], [6, 7]);
+concat([1], [2], [3], [4], [5], [6], [7]);
+concat([1, 2], [3, 4]);
+concat([4, 4, 4, 4, 4]);
+
 
 
 //***** #4 Convenience Store
@@ -193,7 +224,20 @@ convertAddressToObject('5408 Villa Nueva') // {streetNumber: '5408', streetName:
 // nickel: 5 cents / $0.05
 // penny: 1 cent / $0.01
 
-
+function changeEnough(array, total){
+    var changeTotal = (array[0] * 0.25) + (array[1] * 0.10) + (array[2] * 0.05) + (array[3] * 0.01);
+    if (changeTotal >= total){
+        console.log(true);
+    }
+    else {
+        console.log(false);
+    }
+}
+changeEnough([2, 100, 0, 0], 14.11);
+changeEnough([0, 0, 20, 5], 0.75);
+changeEnough([30, 40, 20, 5], 12.55);
+changeEnough([10, 0, 0, 50], 3.85);
+changeEnough([1, 0, 5, 219], 19.99);
 
 //*************** EDABIT Challanges Array Hard***************
 
@@ -211,6 +255,19 @@ convertAddressToObject('5408 Villa Nueva') // {streetNumber: '5408', streetName:
 // // 97 contains the number seven.
 // Notes
 // N/A
+
+function sevenBoom(array){
+    var str = array.join("");
+    if (str.indexOf(7) != -1){
+        console.log("Boom");
+    }
+    else {
+        console.log("No Boom");
+    }
+}
+sevenBoom([1, 2, 3, 4, 5, 6, 7]);
+sevenBoom([8, 6, 33, 100]);
+sevenBoom([2, 55, 60, 97, 86]);
 
 //**** #2 Number of Boomerangs
 // A boomerang is a V-shaped sequence that is either upright or upside down. Specifically, a boomerang can be defined as: sub-array of length 3, with the first and last digits being the same and the middle digit being different.
@@ -266,6 +323,23 @@ convertAddressToObject('5408 Villa Nueva') // {streetNumber: '5408', streetName:
 // nameScore("PUBG") ➞ "NOT TOO GOOD"
 // Notes
 // N/A
+function nameScore(name){
+    var score = 0;
+    var letter = "";
+    for (var i = 0; i < name.length; i++){
+        letter = name.charAt(i);
+        score += scores[letter];
+    }
+
+    if (score <= 60){console.log("NOT TOO GOOD")}
+    else if (score >= 61 && score <= 300){console.log("PRETTY GOOD")}
+    else if (score >= 301 && score <= 599){console.log("VERY GOOD")}
+    else {console.log("THE BEST")}
+}
+nameScore("MUBASHIR");
+nameScore("YOU");
+nameScore("MATT");
+nameScore("PUBG");
 
 
 //**** #2 Burglary Series (04): Add its name
