@@ -193,8 +193,17 @@ toArray({});
 // Notes
 // Arrays should be concatenated in order of the arguments.
 
-function concat(array){
-    if (array.length){}
+function concat(){
+    if (arguments.length == 1){
+        console.log(arguments[0]);
+    }
+    else if (arguments.length > 1){
+        var concatArr = [];
+        for (var i = 0; i < arguments.length; i++){
+            concatArr = concatArr.concat(arguments[i]);
+        }
+        console.log(concatArr);
+    }
 }
 concat([1, 2, 3], [4, 5], [6, 7]);
 concat([1], [2], [3], [4], [5], [6], [7]);
@@ -293,6 +302,18 @@ sevenBoom([2, 55, 60, 97, 86]);
 // countBoomerangs([4, 4, 4, 9, 9, 9, 9]) ➞ 0
 // Notes
 //     [5, 5, 5] (triple identical digits) is NOT considered a boomerang because the middle digit is identical to the first and last.
+function countBoomerangs(array){
+    var count = 0;
+    for (var i = 0; i < (array.length - 3); i++){
+        if (array[i] == array[i +2] && array[i + 1] != array[i]){
+            count++;
+        }
+    }
+    console.log(count);
+}
+countBoomerangs([9, 5, 9, 5, 1, 1, 1]);
+countBoomerangs([5, 6, 6, 7, 6, 3, 9]);
+countBoomerangs([4, 4, 4, 9, 9, 9, 9]);
 
 //*************** EDABIT Challanges Objects Medium ***************
 
@@ -373,8 +394,14 @@ nameScore("PUBG");
 // // Should return 27.897342763877365
 // Notes
 // Don't worry about floating point precision - I've factored in the chance that your answer may be more or less accurate than mine. This is more of a tutorial than a challenge so the topic covered may be considered advanced, yet the challenge is more simple - so if this challenge gets labelled as easy, don't worry too much.
-
-
+// function getArea(r){
+//     return (Math.PI() * r * r);
+// }
+// function getPerimeter(r){
+//     return (2 * Math.PI() * r);
+// }
+// let circy = new Circle(11);
+// console.log();
 //*************** EDABIT Challanges Objects Hard ***************
 
 
@@ -395,3 +422,25 @@ nameScore("PUBG");
 // chosenWine([]) ➞ null
 // Notes
 // All wines will be different prices, so there is no confusion in the ordering.
+function chosenWine(array){
+    if (array.length == 0){
+        console.log(null);
+    }
+    else if (array.length == 1){
+        console.log(array[0].name);
+    }
+    else {
+        array.sort(function (a, b) {
+            return a.price - b.price;
+        });
+        console.log(array);
+        console.log(array[1].name);
+    }
+}
+chosenWine([
+    { name: "Wine A", price: 8.99 },
+    { name: "Wine 32", price: 13.99 },
+    { name: "Wine 9", price: 10.99 }
+    ]);
+chosenWine([{ name: "Wine A", price: 8.99 }]);
+chosenWine([]);
