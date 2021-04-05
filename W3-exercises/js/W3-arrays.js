@@ -68,7 +68,21 @@ console.log(first([7, 9, 0, -2],-3));
 // -2
 // [9, 0, -2]
 // [7, 9, 0, -2]
-
+function last(array, num){
+    if (num == undefined){
+        return array[array.length - 1];
+    }
+    else if (num > array.length){
+        return array;
+    }
+    else {
+        var slice = array.slice(array.length - 3, array.length);
+        return slice;
+    }
+}
+console.log(last([7, 9, 0, -2]));
+console.log(last([7, 9, 0, -2],3));
+console.log(last([7, 9, 0, -2],6));
 
 // 5. Write a simple JavaScript program to join all elements of the following array into a string. Go to the editor
 // Sample array : myColor = ["Red", "Green", "White", "Black"];
@@ -76,3 +90,9 @@ console.log(first([7, 9, 0, -2],-3));
 // "Red,Green,White,Black"
 // "Red,Green,White,Black"
 // "Red+Green+White+Black"
+myColor = ["Red", "Green", "White", "Black"];
+function arrToStr(array){
+    var string = array.join(",");
+    console.log(string);
+}
+arrToStr(myColor);

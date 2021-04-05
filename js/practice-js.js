@@ -37,8 +37,6 @@ convertDaystoHours("2");
 convertDaystoHours(7);
 convertDaystoHours("days");
 
-
-
 // Write a function named totalPets that accepts an array of objects where each object represents a person, and has a 'pets' property for their owned pets. The function should return the sum of every object's numPets property.
 
 // totalPets([{name: 'Fernando Mendoza', numPets: 1},{name: 'Douglas Hirsh', numPets: 8}, {name: 'Kenneth Howell', numPets: 3}]) //11
@@ -69,7 +67,6 @@ function totalPets(petsArray){
     var sum = 0;
     for(var i = 0; i < petsArray.length; i++){
         sum = sum + petsArray[i].numPets;
-        // console.log("var 'sum' is currently " + sum) //uncomment if you want to track the running total of sum
     }
     return sum;
 }
@@ -88,12 +85,9 @@ function countPosi (array){
     });
     console.log(posi);
 }
-
 countPosi([-2, 7, 4, -9, 1]) //3
 countPosi([3, 6, 9, -1]) //3
 countPosi([10]) //1
-
-
 
 // Write a function named printRecipe that accepts a recipe object. A recipe object will have properties of title (a string), servings (a number), and ingredients (an array of strings). printRecipe will console.log each property in this format:
 
@@ -111,9 +105,7 @@ var caldoRecipe = {name: "Caldo con Pollo", servings: 4, ingredients: ["whole ch
     console.log("Serves: " + recipe.servings);
     console.log("Required ingredients: " + recipe.ingredients);
  }
-
  printRecipe(caldoRecipe);
-
 
 // Write a function named convertAddressToObject that accepts a string that contains a street number (as a string) and street name separated by a space characters, and returns an object with properties streetNumber and streetName.
 
@@ -121,9 +113,7 @@ function convertAddressToObject(string){
   var array = string.split(" ");
   var address = {};
   address.streetNumber = array[0];
-  // var streetName =
   address.streetName = array[1] +" " + array[2];
-
   console.log(address);
 }
 
