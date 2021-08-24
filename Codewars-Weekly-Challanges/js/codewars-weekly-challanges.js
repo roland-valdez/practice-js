@@ -127,18 +127,7 @@
 
 
 function arrayDiff(a, b) {
-    let newArray = [];
-    for (let i = 0; i <= b.length; i++){
-        for (let j = 0; j <= a.length; j++){
-            if((a[j] != b[i])){
-                newArray.push(a[j]);
-            }
-        }
-    }
-    if (newArray.length == 1){
-        return [];
-    }
-    return newArray.splice(0, newArray.length - 1);
+return (a.filter(f => !b.includes(f)));
 }
 
 console.log(arrayDiff([], [4,5]));
