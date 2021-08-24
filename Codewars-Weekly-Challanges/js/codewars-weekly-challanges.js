@@ -17,47 +17,47 @@
 // AlphabetWar("zdqmwpbs"); //=> Let's fight again!
 // AlphabetWar("zzzzs");    //=> Right side wins!
 // AlphabetWar("wwwwwwz");  //=> Left side wins!
-function AlphabetWar(string){
-    string.split("");
-    var left = 0;
-    var right = 0;
-    for (var i = 0; i < string.length; i++) {
-        switch(string[i]) {
-            case "w":
-                left += 4;
-                break;
-            case "p":
-                left += 3;
-                break;
-            case "b":
-                left += 2;
-                break;
-            case "s":
-                left += 1;
-                break;
-            case "m":
-                right += 4;
-                break;
-            case "q":
-                right += 3;
-                break;
-            case "d":
-                right += 2;
-                break;
-            case "z":
-                right += 1;
-                break;
-        }
-    }
-    if (left < right){
-        return console.log("Right side wins!");
-    }
-    return console.log("Left side wins!");
-}
-AlphabetWar("z");        //=> Right side wins!
-AlphabetWar("zdqmwpbs"); //=> Let's fight again!
-AlphabetWar("zzzzs");    //=> Right side wins!
-AlphabetWar("wwwwwwz");  //=> Left side wins!
+// function AlphabetWar(string){
+//     string.split("");
+//     var left = 0;
+//     var right = 0;
+//     for (var i = 0; i < string.length; i++) {
+//         switch(string[i]) {
+//             case "w":
+//                 left += 4;
+//                 break;
+//             case "p":
+//                 left += 3;
+//                 break;
+//             case "b":
+//                 left += 2;
+//                 break;
+//             case "s":
+//                 left += 1;
+//                 break;
+//             case "m":
+//                 right += 4;
+//                 break;
+//             case "q":
+//                 right += 3;
+//                 break;
+//             case "d":
+//                 right += 2;
+//                 break;
+//             case "z":
+//                 right += 1;
+//                 break;
+//         }
+//     }
+//     if (left < right){
+//         return console.log("Right side wins!");
+//     }
+//     return console.log("Left side wins!");
+// }
+// AlphabetWar("z");        //=> Right side wins!
+// AlphabetWar("zdqmwpbs"); //=> Let's fight again!
+// AlphabetWar("zzzzs");    //=> Right side wins!
+// AlphabetWar("wwwwwwz");  //=> Left side wins!
 // Description:
 //     Your task is to make a function that can take any non-negative integer as an argument and return it with its digits in descending order. Essentially, rearrange the digits to create the highest possible number.
 //
@@ -67,19 +67,19 @@ AlphabetWar("wwwwwwz");  //=> Left side wins!
 // Input: 145263 Output: 654321
 //
 // Input: 123456789 Output: 987654321
-function descendingOrder(n){
-    //...
-    var unsorted = n.toString();
+// function descendingOrder(n){
+//     //...
+//     var unsorted = n.toString();
 
     // if (unsorted.length > 1) {
     //     console.log(unsorted.split(""));
     //     return console.log(unsorted);
     // }
     // return console.log(n);
-}
-descendingOrder(0)// 0)
-descendingOrder(1)// 1)
-descendingOrder(123456789)// 987654321)
+// }
+// descendingOrder(0)// 0)
+// descendingOrder(1)// 1)
+// descendingOrder(123456789)// 987654321)
 // function descendingOrder(n){
 //     return parseInt(String(n).split('').sort().reverse().join(''))//could use Number also instead of parseInt
 // }
@@ -108,19 +108,40 @@ descendingOrder(123456789)// 987654321)
 //     Constraints: 1 ≤ b ≤ 10^7
 //
 //     [output] an integer
+//
+// function carry(a, b){
+//     a =  String(a).split("");
+//     b = String(b).split("");
+//     if (a.length > b.length){
+//         var diff = a.length - b.length;
+//         for(var i = 0; i < diff; i++){
+//             b.shift("0");
+//             console.log("im here");
+//         }
+//
+//     }
+//     console.log(a);
+//     console.log(b);
+// }
+// carry(29, 3);
 
-function carry(a, b){
-    a =  String(a).split("");
-    b = String(b).split("");
-    if (a.length > b.length){
-        var diff = a.length - b.length;
-        for(var i = 0; i < diff; i++){
-            b.shift("0");
-            console.log("im here");
+
+function arrayDiff(a, b) {
+    let newArray = [];
+    for (let i = 0; i <= b.length; i++){
+        for (let j = 0; j <= a.length; j++){
+            if((a[j] != b[i])){
+                newArray.push(a[j]);
+            }
         }
-
     }
-    console.log(a);
-    console.log(b);
+    if (newArray.length == 1){
+        return [];
+    }
+    return newArray.splice(0, newArray.length - 1);
 }
-carry(29, 3);
+
+console.log(arrayDiff([], [4,5]));
+console.log(arrayDiff([3,4], [3]));
+console.log(arrayDiff([1,8,2], []));
+console.log(arrayDiff([1,2,3], [1,2]));
