@@ -134,18 +134,37 @@
 // console.log(arrayDiff([3,4], [3]));
 // console.log(arrayDiff([1,8,2], []));
 // console.log(arrayDiff([1,2,3], [1,2]));
+// function isPrime(num) {
+//    if (num <= 1){
+//       return false;
+//    }
+//    else if ((num % 1 != 0) || (num / num != 1)){
+//        return false;
+//    }
+//    else if ((num % 1 == 0) && (num / num == 1)) {
+//       for (let i = 1; i < num; i++) {
+//          if(i + 1 == num){
+//             return true;
+//          }
+//          if (num % i == 0) {
+//             return false;
+//          }
+//          return true;
+//       }
+//    }
+// }
 
 function isPrime(num) {
-   if (num <= 1){
-      return false;
+   if (num < 2) return false;
+   const limit = Math.sqrt(num);
+   for (let i = 2; i <= limit; ++i) {
+      if (num % i === 0) {
+         return false;
+      }
    }
-   else if ((num % 1 == 0) && (num / num == 1)){
-      return true;
-   }
-   else if ((num % 1 != 0) || (num / num == 1)){
-       return false;
-   }
+   return true;
 }
+
 
 console.log(isPrime(0));
 console.log(isPrime(1));
