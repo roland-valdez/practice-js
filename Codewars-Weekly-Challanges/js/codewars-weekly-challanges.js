@@ -126,11 +126,30 @@
 // carry(29, 3);
 
 
-function arrayDiff(a, b) {
-return (a.filter(f => !b.includes(f)));
+// function arrayDiff(a, b) {
+// return (a.filter(f => !b.includes(f)));
+// }
+//
+// console.log(arrayDiff([], [4,5]));
+// console.log(arrayDiff([3,4], [3]));
+// console.log(arrayDiff([1,8,2], []));
+// console.log(arrayDiff([1,2,3], [1,2]));
+
+function isPrime(num) {
+   if (num <= 1){
+      return false;
+   }
+   else if ((num % 1 == 0) && (num / num == 1)){
+      return true;
+   }
+   else if ((num % 1 != 0) || (num / num == 1)){
+       return false;
+   }
 }
 
-console.log(arrayDiff([], [4,5]));
-console.log(arrayDiff([3,4], [3]));
-console.log(arrayDiff([1,8,2], []));
-console.log(arrayDiff([1,2,3], [1,2]));
+console.log(isPrime(0));
+console.log(isPrime(1));
+console.log(isPrime(2));
+console.log(isPrime(73));
+console.log(isPrime(75));
+console.log(isPrime(-1));
