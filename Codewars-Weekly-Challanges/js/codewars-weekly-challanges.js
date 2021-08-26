@@ -174,39 +174,26 @@
 // console.log(isPrime(-1));
 
 function validParentheses(parens){
-   let p = parens.split();
-   function oddOrEven (p){
-      if(p.length % 2 == 0){
-         return p
-      }
-      else {
+   if (parens == null || parens == ""){
+      return true;
+   }
+   let p = parens.split("");
 
+   if(p.length <= 1){
+      return false;
+   }
+
+   else{
+      let open = p.filter(c => c == "(");
+      let close = p.filter(b => b == ")");
+      if(open.length === close.length){
+         return true;
+      }
+      else{
+         return false;
       }
    }
-   let pOdd = p.filter(c => c.index(c.length % 2 === 0));
-   console.log(pOdd);
-   // if(p.length == 1){
-   //    return true;
-   // }
-   // else if(p.length < 0){
-   //    return false;
-   // }
-   // else {
-   //    if(p[0] === "("){
-   //       for(let i = 1; i < p.length; i++) {
-   //
-   //       }
-   //       return false;
-   //    }
-   //    else if (p[0] === ")"){
-   //       for(let i = 1; i < p.length; i++) {
-   //
-   //       }
-   //       return false;
-   //    }
-   //
-   // }
 }
 
-validParentheses( "()" );
-validParentheses( "())" );
+console.log(validParentheses( ")(()))" ))//true
+console.log(validParentheses( "()()()()()()(())()()()()()" ))//true
