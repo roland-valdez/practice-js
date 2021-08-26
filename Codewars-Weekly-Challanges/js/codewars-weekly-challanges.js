@@ -154,21 +154,59 @@
 //    }
 // }
 
-function isPrime(num) {
-   if (num < 2) return false;
-   const limit = Math.sqrt(num);
-   for (let i = 2; i <= limit; ++i) {
-      if (num % i === 0) {
-         return false;
+// function isPrime(num) {
+//    if (num < 2) return false;
+//    const limit = Math.sqrt(num);
+//    for (let i = 2; i <= limit; ++i) {
+//       if (num % i === 0) {
+//          return false;
+//       }
+//    }
+//    return true;
+// }
+//
+//
+// console.log(isPrime(0));
+// console.log(isPrime(1));
+// console.log(isPrime(2));
+// console.log(isPrime(73));
+// console.log(isPrime(75));
+// console.log(isPrime(-1));
+
+function validParentheses(parens){
+   let p = parens.split();
+   function oddOrEven (p){
+      if(p.length % 2 == 0){
+         return p
+      }
+      else {
+
       }
    }
-   return true;
+   let pOdd = p.filter(c => c.index(c.length % 2 === 0));
+   console.log(pOdd);
+   // if(p.length == 1){
+   //    return true;
+   // }
+   // else if(p.length < 0){
+   //    return false;
+   // }
+   // else {
+   //    if(p[0] === "("){
+   //       for(let i = 1; i < p.length; i++) {
+   //
+   //       }
+   //       return false;
+   //    }
+   //    else if (p[0] === ")"){
+   //       for(let i = 1; i < p.length; i++) {
+   //
+   //       }
+   //       return false;
+   //    }
+   //
+   // }
 }
 
-
-console.log(isPrime(0));
-console.log(isPrime(1));
-console.log(isPrime(2));
-console.log(isPrime(73));
-console.log(isPrime(75));
-console.log(isPrime(-1));
+validParentheses( "()" );
+validParentheses( "())" );
